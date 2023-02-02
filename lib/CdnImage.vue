@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<{
   size?: Size,
   parameter?: Parameter,
   pixelDensities?: PixelDensity[],
+  compressor?: string,
   breakpoints?: Record<string, Partial<Breakpoint>>,
 }>(), {
   responsive: true,
@@ -27,16 +28,35 @@ const props = withDefaults(defineProps<{
 const cdnUrl = useCdnUrl()
 const breakpointsDefinition = useBreakpoints()
 
-const mediaSrc = computed(() => (
-  createCdnMediaUrl(cdnUrl, props.path, props.mode, props.size, props.parameter)
+const prepareUrl = (url: string): URL => {
+  const preparedUrl = new URL(url)
+  if (props.compressor) {
+    preparedUrl.searchParams.set('compressor', props.compressor)
+  }
+
+  return preparedUrl
+}
+
+const mediaUrl = computed(() => (
+  prepareUrl(createCdnMediaUrl(cdnUrl, props.path, props.mode, props.size, props.parameter))
 ))
 
-const srcset = computed(() => (
-  props.pixelDensities
-    .map((pixelDensity) => (
-      `${mediaSrc.value}?res=${pixelDensity} ${pixelDensity}`
-    ))
+const createSrcset = (pixelDensities: PixelDensity[], baseUrl: URL) => (
+  pixelDensities
+    .map((pixelDensity) => {
+      const url = new URL(baseUrl)
+      url.searchParams.set('res', pixelDensity)
+
+      return `${url} ${pixelDensity}`
+    })
     .join(', ')
+)
+
+const srcset = computed(() => (
+  createSrcset(
+    props.pixelDensities,
+    mediaUrl.value,
+  )
 ))
 
 const sources = computed(() => (
@@ -62,19 +82,20 @@ const sources = computed(() => (
     })
     .filter(<T> (breakpoint: T): breakpoint is NonNullable<T> => (breakpoint !== undefined))
     .map((breakpoint) => {
-      const url = createCdnMediaUrl(cdnUrl, breakpoint.path, breakpoint.mode, breakpoint.size, breakpoint.parameter)
+      const url = prepareUrl(
+        createCdnMediaUrl(cdnUrl, breakpoint.path, breakpoint.mode, breakpoint.size, breakpoint.parameter)
+      )
+      url.searchParams.set('src', String(breakpoint.width))
 
       return {
-        srcset: breakpoint.pixelDensities
-          .map((pixelDensity) => (`${url}?src=${breakpoint.width}&res=${pixelDensity} ${pixelDensity}`))
-          .join(', '),
+        srcset: createSrcset(breakpoint.pixelDensities, url),
         media: `(max-width: ${breakpoint.width}px)`,
       }
     })
 ))
 
 const imgAttrs = computed(() => ({
-  src: mediaSrc.value,
+  src: mediaUrl.value.toString(),
   srcset: srcset.value,
 }))
 </script>
