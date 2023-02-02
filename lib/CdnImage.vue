@@ -2,7 +2,7 @@
   setup
   lang="ts"
 >
-import type { Mode, Parameter, Size } from '@apility/netflex-cdn-url'
+import type { FilePath, Mode, Parameter, Size } from '@apility/netflex-cdn-url'
 import { createCdnMediaUrl } from '@apility/netflex-cdn-url'
 import type { Breakpoint, PixelDensity } from './types'
 import { useCdnUrl } from '@apility/vue-netflex-cdn-url'
@@ -11,7 +11,7 @@ import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
   responsive?: boolean,
-  path: string,
+  path: FilePath,
   mode?: Mode,
   size?: Size,
   parameter?: Parameter,

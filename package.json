@@ -9,10 +9,10 @@
     "dist"
   ],
   "main": "./dist/vue-netflex-cdn-image.umd.js",
-  "module": "./dist/vue-netflex-cdn-image.es.js",
+  "module": "./dist/vue-netflex-cdn-image.mjs",
   "exports": {
     ".": {
-      "import": "./dist/vue-netflex-cdn-image.es.js",
+      "import": "./dist/vue-netflex-cdn-image.mjs",
       "require": "./dist/vue-netflex-cdn-image.umd.js"
     }
   },
@@ -24,7 +24,7 @@
   "author": "Cathrine Vaage",
   "homepage": "https://github.com/apility/vue-netflex-cdn-image/tree/main#readme",
   "dependencies": {
-    "@apility/netflex-cdn-url": "^1.0.0",
+    "@apility/netflex-cdn-url": "^2.0.0",
     "@apility/vue-breakpoints-plugin": "^1.0.4",
     "@apility/vue-netflex-cdn-url": "^1.0.2"
   },
@@ -33,11 +33,11 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.39",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "typescript": "^4.5.4",
-    "vite": "^2.9.9",
-    "vite-plugin-dts": "^1.2.0",
-    "vue": "^3.0.0",
-    "vue-tsc": "^0.36.1"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^1.7.2",
+    "vue": "^3.2.47",
+    "vue-tsc": "^1.0.24"
   }
 }
