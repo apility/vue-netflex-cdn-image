@@ -1,5 +1,6 @@
 export * from './types'
 export * from './plugin'
+export * from './composable'
 export { useCdnUrl } from '@apility/vue-netflex-cdn-url'
 export { useBreakpoints } from '@apility/vue-breakpoints-plugin'
 export type { CdnUrl, FilePath, Mode, FocalPoint } from '@apility/netflex-cdn-url'
