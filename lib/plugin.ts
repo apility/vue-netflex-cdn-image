@@ -13,5 +13,3 @@ export const netflexCdnImagePlugin = (
 
   app.provide(cdnImageInjectionKey, { cdnUrl, breakpoints, pixelDensities, compressor })
 }
-
-netflexCdnImagePlugin({} as unknown as App, { cdnUrl: 'asd.cloudfront.net', breakpoints: {} })
