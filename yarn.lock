@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@apility/netflex-cdn-url@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@apility/netflex-cdn-url/-/netflex-cdn-url-1.1.0.tgz#d0bbfc131a49779b00a14e517d191e71c73621da"
-  integrity sha512-KE8B6nwfRSYaZEQekaU3Wi0kfougdbSn0zVR0safc8W6hElal7ByJIs1HdQY+v2J+TZKNLOAbiSXs7dSfaRuqg==
-
 "@apility/netflex-cdn-url@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@apility/netflex-cdn-url/-/netflex-cdn-url-2.0.0.tgz#e2ef6e8383804a0c2d49ec372ae40d8804133d62"
@@ -17,12 +12,12 @@
   resolved "https://registry.yarnpkg.com/@apility/vue-breakpoints-plugin/-/vue-breakpoints-plugin-1.0.4.tgz#7785914e5d9335db604519b958bcc484b708c32f"
   integrity sha512-lNwf6qpD+wHqi79IyYsytZIAGOfbADtrxsC89sJOcJN3yZ6z3GiKZMrY9Rka83QnM1r9VPfeKLItbeoA3GnOIw==
 
-"@apility/vue-netflex-cdn-url@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@apility/vue-netflex-cdn-url/-/vue-netflex-cdn-url-1.0.2.tgz#6daa9ad9db1a765adc15bbeb8c2ddae7e4e89bea"
-  integrity sha512-Lh04HVHD1f91mOoB2fnGnj8urPD5VZnhoGrkIYp3gC1zPV0xk60/oGqqGaxTlz6cTgibWmvgxTc0nRuP3j4vbQ==
+"@apility/vue-netflex-cdn-url@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@apility/vue-netflex-cdn-url/-/vue-netflex-cdn-url-1.0.3.tgz#690dd062516ead6da95529bbbbc86dca62010f77"
+  integrity sha512-NlS2i5UbP7Xg1O8OaWVqtE0X2KQCqaZR07Nqk4xE549tsq1CeZO0hS6QcBg1pydvx5HugcFHzNIwzPWbRlrFGQ==
   dependencies:
-    "@apility/netflex-cdn-url" "^1.0.0"
+    "@apility/netflex-cdn-url" "^2.0.0"
 
 "@babel/parser@^7.16.4":
   version "7.18.4"

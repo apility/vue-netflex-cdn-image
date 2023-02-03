@@ -26,7 +26,7 @@
   "dependencies": {
     "@apility/netflex-cdn-url": "^2.0.0",
     "@apility/vue-breakpoints-plugin": "^1.0.4",
-    "@apility/vue-netflex-cdn-url": "^1.0.2"
+    "@apility/vue-netflex-cdn-url": "^1.0.3"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
