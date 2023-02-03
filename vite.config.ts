@@ -24,6 +24,9 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
+          '@apility/vue-netflex-cdn-url': 'VueNetflexCdnUrl',
+          '@apility/vue-breakpoints-plugin': 'VueBreakpointsPlugin',
+          '@apility/netflex-cdn-url': 'NetflexCdnUrl',
         },
       },
     },
