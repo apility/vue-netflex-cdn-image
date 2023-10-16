@@ -4,7 +4,7 @@
 >
 import type { FilePath, Mode, Parameter, Size } from '@apility/netflex-cdn-url'
 import { createCdnMediaUrl } from '@apility/netflex-cdn-url'
-import type { Breakpoint, Compressor, PixelDensity } from './types'
+import type { Breakpoint, SearchParams, PixelDensity } from './types'
 import { computed } from 'vue'
 import { useCdnImage } from './composable'
 
@@ -15,12 +15,11 @@ const props = withDefaults(defineProps<{
   size?: Size,
   parameter?: Parameter,
   pixelDensities?: PixelDensity[],
-  compressor?: Compressor,
+  searchParams?: SearchParams,
   breakpoints?: Record<string, Partial<Breakpoint>>,
 }>(), {
   responsive: true,
   mode: 'o',
-  breakpoints: () => ({}),
 })
 
 const {
@@ -30,19 +29,24 @@ const {
   compressor: defaultCompressor,
 } = useCdnImage()
 
-const compressor = computed(() => (
-  props.compressor ?? defaultCompressor
-))
+const searchParams = computed(() => ({
+  compressor: props.searchParams?.compressor ?? defaultCompressor,
+  ...props.searchParams,
+}))
 
 const pixelDensities = computed(() => (
   props.pixelDensities ?? defaultPixelDensitites
 ))
 
-const prepareUrl = (url: string, compressor?: Compressor): URL => {
+const prepareUrl = (url: string, searchParams: SearchParams = {}): URL => {
   const preparedUrl = new URL(url)
-  if (compressor) {
-    preparedUrl.searchParams.set('compressor', compressor)
-  }
+
+  Array.from(Object.entries<SearchParams[keyof SearchParams]>(searchParams))
+    .forEach(([key, value]) => {
+      if (value !== undefined) {
+        preparedUrl.searchParams.set(key, String(value))
+      }
+    })
 
   return preparedUrl
 }
@@ -50,7 +54,7 @@ const prepareUrl = (url: string, compressor?: Compressor): URL => {
 const mediaUrl = computed(() => (
   prepareUrl(
     createCdnMediaUrl(cdnUrl, props.path, props.mode, props.size, props.parameter),
-    compressor.value,
+    searchParams.value,
   )
 ))
 
@@ -81,7 +85,7 @@ const sources = computed(() => (
         return undefined
       }
 
-      const breakpoint = props.breakpoints[breakpointName] ?? {}
+      const breakpoint = props.breakpoints?.[breakpointName] ?? {}
 
       return {
         path: props.path,
@@ -89,7 +93,7 @@ const sources = computed(() => (
         size: props.size,
         parameter: props.parameter,
         pixelDensities: pixelDensities.value,
-        compressor: compressor.value,
+        searchParams: searchParams.value,
         ...breakpoint,
         width: nextBreakpoint - 1,
       }
@@ -98,7 +102,7 @@ const sources = computed(() => (
     .map((breakpoint) => {
       const url = prepareUrl(
         createCdnMediaUrl(cdnUrl, breakpoint.path, breakpoint.mode, breakpoint.size, breakpoint.parameter),
-        breakpoint.compressor,
+        breakpoint.searchParams,
       )
       url.searchParams.set('src', String(breakpoint.width))
 
