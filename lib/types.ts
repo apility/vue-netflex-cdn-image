@@ -10,6 +10,7 @@ export type Resampler =
   | 'linear'
   | 'mitchell_netravali'
   | 'nearest_neighbor'
+export type Extension = 'png' | 'jpg' | 'webp' | 'avif'
 
 export type PixelDensity = `${number}x`
 
@@ -27,6 +28,7 @@ export type CdnImageOptions =
 export type SearchParams = {
   compressor?: Compressor,
   resampler?: Resampler,
+  ext?: Extension,
   speed?: number,
   /** Number between 1 and 101 */
   quality?: number,
