@@ -22,6 +22,15 @@ const props = withDefaults(defineProps<{
   mode: 'o',
 })
 
+defineSlots<{
+  default (props: {
+    attrs: {
+      src: string,
+      srcset: string,
+    }
+  }): any
+}>()
+
 const {
   cdnUrl,
   breakpoints: breakpointsDefinition,
