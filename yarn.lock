@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@apility/vue-breakpoints-plugin/-/vue-breakpoints-plugin-1.0.4.tgz#7785914e5d9335db604519b958bcc484b708c32f"
   integrity sha512-lNwf6qpD+wHqi79IyYsytZIAGOfbADtrxsC89sJOcJN3yZ6z3GiKZMrY9Rka83QnM1r9VPfeKLItbeoA3GnOIw==
 
-"@apility/vue-netflex-cdn-url@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@apility/vue-netflex-cdn-url/-/vue-netflex-cdn-url-1.0.6.tgz#4f2321605f93b2c444a70741f2b53f014cfe2377"
-  integrity sha512-0gSBbsgJO0eb9uCidcvGs6gOYPY3+BYPbafQjjgx0SyATVIu73e3utiDbI8JydiBdyRB0Xq1zQybfYaI9JQxTw==
+"@apility/vue-netflex-cdn-url@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@apility/vue-netflex-cdn-url/-/vue-netflex-cdn-url-1.0.7.tgz#5d4dadc26f6d8e0d4c628f56ba7df1f87c2b9543"
+  integrity sha512-JcEhO+1M0csYnd0mwWjD5FNtb/ZX+hDEascjjNgxroxxo4/OT1JhQy/A6fTvrYNS2K+dMTU01CJbC2Q5oYHlmg==
   dependencies:
     "@apility/netflex-cdn-url" "^2.1.2"
 
