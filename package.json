@@ -1,6 +1,6 @@
 {
   "name": "@apility/vue-netflex-cdn-image",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A Vue library for Netflex cdn images",
   "scripts": {
     "build": "vue-tsc && vite build"
