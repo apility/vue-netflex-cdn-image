@@ -26,7 +26,7 @@
   "homepage": "https://github.com/apility/vue-netflex-cdn-image/tree/main#readme",
   "dependencies": {
     "@apility/netflex-cdn-url": "^2.1.3",
-    "@apility/vue-breakpoints-plugin": "^1.0.5",
+    "@apility/vue-breakpoints-plugin": "^1.0.6",
     "@apility/vue-netflex-cdn-url": "^1.0.8"
   },
   "peerDependencies": {
